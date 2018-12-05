@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\eclipse\jee-oxygen\workspace\disabledServe"/>
+		<item value="E:\残疾人网站项目\disabledServe"/>
+		<item value="D:\eclipse\jee-oxygen\workspace\SalesManagerment"/>
+		<item value="D:\eclipse\jee-oxygen\workspace\EasyMVC"/>
+		<item value="E:\Java\Java笔记\第八季Spring5笔记与代码\spring5_code\Spring5-aop-anno"/>
+		<item value="D:\eclipse\jee-oxygen\workspace\MyBatis-params"/>
+		<item value="D:\eclipse\jee-oxygen\workspace\MyBatis-resultMap"/>
+		<item value="D:\eclipse\jee-oxygen\workspace\test"/>
+		<item value="D:\eclipse\jee-oxygen\workspace\login-logout-shoppingcart-randomcode-token"/>
+		<item value="D:\eclipse4jee\workspace"/>
+	</list>
+	<section name="CleanDialogSettings">
+		<item value="747" key="DIALOG_WIDTH"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="496" key="DIALOG_HEIGHT"/>
+		<item value="670" key="DIALOG_X_ORIGIN"/>
+		<item value="216" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+</section>

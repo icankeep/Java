@@ -1,0 +1,21 @@
+package com.passer.extends_servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+//@WebServlet("/req")
+public class HttpServletRequestDemo extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		//返回请求方式，如GET，POST
+		System.out.println(req.getMethod());
+	}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<contacts> 
+  <linkman> 
+    <name>passer</name>  
+    <email>5273@qq.com</email>  
+    <age>18</age> 
+  </linkman>  
+  <linkman> 
+    <name>tsa</name>  
+    <email>2454@qq.com</email>  
+    <age>17</age> 
+  </linkman>  
+  <linkman>
+    <name>haha</name>
+    <email>hahah@qq.com</email>
+    <age>14</age>
+  </linkman>
+  <linkman>
+    <name>haha11</name>
+    <email>hahah@qq.com</email>
+    <age>14</age>
+  </linkman>
+</contacts>

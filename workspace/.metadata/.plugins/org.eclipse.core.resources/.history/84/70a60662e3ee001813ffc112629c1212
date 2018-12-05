@@ -1,0 +1,11 @@
+package com.passer.bean_utils;
+
+import java.util.Map;
+
+public class BeanUtils {
+	
+	//JavaBean转化为Map
+	public static Map<String,Object> bean2Map(Object obj){
+		return null;
+	}
+}

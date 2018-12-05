@@ -1,0 +1,13 @@
+package com.passer.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class HibernateTest {
+
+	@Test
+	public void testName() throws Exception {
+		
+	}
+}

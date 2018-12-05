@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.passer.mybatis.hello.mapper.UserMapper">
+	
+	<!-- 抽出重复where -->
+	<sql id="baseWhere">
+		<where>
+			<if test="keyword!=null">AND name LIKE concat('%',#{keyword},'%')
+				OR sn LIKE concat('%',#{keyword},'%')
+			</if>
+			<if test="minSalary!=null">AND salary &gt;= #{minSalary}</if>
+			<if test="maxSalary!=null">AND salary &lt;= #{maxSalary}</if>
+			<if test="deptid!=null and deptid > 0">AND deptid = #{deptid}</if>
+		</where>
+	</sql>
+	
+	<!-- 高级查询sql -->
+	<select id="query" resultType="User">
+		SELECT id,name,salary,sn,deptid FROM t_user
+		<include refid="baseWhere"></include>
+		LIMIT #{start},#{pageSize}
+	</select>
+	
+	<!-- 查询记录总数sql -->
+	<select id="queryForCount" resultType="int">
+		SELECT COUNT(id) FROM t_user
+		<include refid="baseWhere"></include>
+	</select>
+	
+	<select id="getUser" resultType="User">
+		SELECT id,name,salary,deptid FROM t_user
+		<where>
+			<if test="minSalary!=null">AND salary &gt;= #{minSalary}</if>
+		</where>
+	</select>
+</mapper>

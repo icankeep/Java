@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;contacts.xml&apos; to &apos;Java基础加强two/resources&apos;&#x0D;&#x0A;- Original project: &apos;Java基础加强two&apos;&#x0D;&#x0A;- Destination element: &apos;Java基础加强two/resources&apos;&#x0D;&#x0A;- Original element: &apos;contacts.xml&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="/resources" element1="src/com/passer/xml/contacts.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1543050838158" units="0" version="1.0"/>
+</session>

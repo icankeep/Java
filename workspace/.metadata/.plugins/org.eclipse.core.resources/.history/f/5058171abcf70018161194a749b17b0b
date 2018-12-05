@@ -1,0 +1,8 @@
+package com.passer.smis.web.servlet;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/student/list")
+public class ListUserServlet {
+
+}

@@ -1,0 +1,5 @@
+package com.passer.smis.dao.impl;
+
+public class StudentDAOImpl {
+
+}

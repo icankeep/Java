@@ -1,0 +1,10 @@
+package com.passer.chapter2;
+
+/**
+ * VM Args:-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemeoryError
+ * @author passer
+ *
+ */
+public class HeapOOM {
+
+}

@@ -1,0 +1,34 @@
+package com.passer.junit4;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+
+public class MyJUnit {
+	public static void main(String []args) throws Exception {
+		Class<JUnit4> clz=JUnit4.class;
+		JUnit4 junit4=clz.newInstance();
+		Method [] ms=clz.getDeclaredMethods();
+		ArrayList<Method> beforeList=new ArrayList<>();
+		ArrayList<Method> testList=new ArrayList<>();
+		ArrayList<Method> afterList=new ArrayList<>();
+		for (Method m : ms) {
+			if(m.getAnnotation(MyBefore.class)!=null) {
+				beforeList.add(m);continue;
+			}else if(m.getAnnotation(MyTest.class) != null){
+				testList.add(m);
+			}else if(m.getAnnotation(MyAfter.class)!=null) {
+				afterList.add(m);
+			}
+			
+		}
+		for(Method m:beforeList) {
+			m.invoke(junit4);
+		}
+		for (Method m : testList) {
+			m.invoke(junit4);
+		}
+		for (Method m : afterList) {
+			m.invoke(junit4);
+		}
+	}
+}

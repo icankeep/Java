@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.ddl_exception&apos; to &apos;com.passer.ddl_exception&apos;&#x0D;&#x0A;- Original project: &apos;JDBC&apos;&#x0D;&#x0A;- Original element: &apos;JDBC/src/com.ddl_exception&apos;&#x0D;&#x0A;- Renamed element: &apos;JDBC/src/com.passer.ddl_exception&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.ddl_exception&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.ddl_exception" name="com.passer.ddl_exception" qualified="false" references="true" stamp="1526737847641" textual="false" version="1.0"/>
+</session>

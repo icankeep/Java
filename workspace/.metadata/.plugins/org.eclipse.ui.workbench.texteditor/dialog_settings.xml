@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.templates.TemplatePreferencePage$EditTemplateDialog_dialogBounds">
+		<item value="725" key="DIALOG_WIDTH"/>
+		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+		<item value="417" key="DIALOG_HEIGHT"/>
+		<item value="2" key="DIALOG_X_ORIGIN"/>
+		<item value="41" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.jst.jsp.ui.internal.preferences.ui.JSPTemplatePreferencePage$JSPEditTemplateDialog_dialogBounds">
+		<item value="1450" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="659" key="DIALOG_HEIGHT"/>
+		<item value="218" key="DIALOG_X_ORIGIN"/>
+		<item value="89" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="/" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="\\"/>
+			<item value="public String getPasswordById(Long id) {"/>
+			<item value="jdbcTemplate"/>
+			<item value="&quot;"/>
+			<item value="ublic int getRemotePort() {"/>
+			<item value="DBCP"/>
+		</list>
+		<list key="replacehistory">
+			<item value="/"/>
+			<item value="super.getJdbcTemplate()"/>
+			<item value="&apos;"/>
+			<item value="Druid"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="405" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="511" key="DIALOG_HEIGHT"/>
+		<item value="514" key="DIALOG_X_ORIGIN"/>
+		<item value="75" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

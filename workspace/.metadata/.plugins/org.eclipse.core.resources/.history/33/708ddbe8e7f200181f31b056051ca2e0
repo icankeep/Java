@@ -1,0 +1,19 @@
+package com.passer.domain;
+
+import com.passer.anno.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter@Setter
+@Table
+public class User {
+	
+	private Long id;
+	private String name;
+	private Integer age;
+	
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", age=" + age + "]";
+	}
+}

@@ -1,0 +1,22 @@
+package com.passer.prepared_statement;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import org.junit.Test;
+
+import com.passer.smis.util.JdbcUtil;
+
+public class PreparedStatementTest {
+
+	@Test
+	public void testPreparedStament() throws Exception {
+		String sql = "INSERT INTO t_student (name,age) VALUES (?,?)";
+		Connection conn = JdbcUtil.getConnection();
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, "hhh");
+		ps.setInt(2,18);
+		ps.executeUpdate();
+		JdbcUtil.close(conn,ps,null);
+	}
+}

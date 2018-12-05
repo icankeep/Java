@@ -1,0 +1,8 @@
+package com.passer.cal;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/cal")
+public class CalServlet {
+
+}

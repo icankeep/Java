@@ -1,0 +1,8 @@
+package com.passer.param;
+
+import javax.servlet.http.HttpServlet;
+
+@Servlet("/param/list")
+public class ListServlet extends HttpServlet{
+
+}

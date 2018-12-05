@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>编辑用户</title>
+</head>
+<body>
+	
+	<form action="/user/save" method="post">
+		姓名:<input type="text" name="name" value="${user.name}" required/><br/>
+		年龄:<input type="number" name="age" value="${user.age}" required/><br/>
+		<input type="submit" value="保存用户信息"/>
+	</form>
+</body>
+</html>

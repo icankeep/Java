@@ -1,0 +1,10 @@
+package com.passer.cal;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/cal")
+public class CalServlet extends HttpServlet{
+
+	service
+}

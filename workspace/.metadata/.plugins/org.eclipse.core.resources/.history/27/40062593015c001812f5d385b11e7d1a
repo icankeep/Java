@@ -1,0 +1,48 @@
+package com.passer.smis.test;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.Test;
+
+import com.passer.smis.dao.IStudentDAO;
+import com.passer.smis.dao.impl.StudentDAOImpl;
+import com.passer.smis.domain.Student;
+
+class StudentDAOTest {
+
+	private IStudentDAO studentDAO=new StudentDAOImpl();
+	@Test
+	void testSave() {
+		Student newStu=new Student();
+		newStu.setAge(16);
+		newStu.setName("passerllll");
+		studentDAO.update(newStu);
+	}
+
+	@Test
+	void testUpdate() {
+		Student newStu=new Student();
+		newStu.setId(3L);
+		newStu.setAge(16);
+		newStu.setName("lljjll");
+		studentDAO.update(newStu);
+	}
+
+	@Test
+	void testDelete() {
+		studentDAO.delete(2L);
+	}
+
+	@Test
+	void testGet() {
+		System.out.println(studentDAO.get(3l));
+	}
+
+	@Test
+	void testListAll() {
+		for(Student stu:studentDAO.listAll()) {
+			System.out.println(stu);
+		}
+	}
+
+}

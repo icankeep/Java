@@ -1,0 +1,47 @@
+package com.passer.xml;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class DocTest {
+	
+	/*
+	 * 取出第二个联系人的名字
+	 */
+	@Test
+	public void testDoc1() throws Exception {
+		File f=new File("resources/students.xml");
+		Document doc=DocumentBuilderFactory.newInstance().
+				newDocumentBuilder().parse(f);
+		Element students=doc.getDocumentElement();
+		Element student=(Element) students.getElementsByTagName("student").item(1);
+		Element name=(Element) student.getElementsByTagName("name").item(0);
+		System.out.println(name.getTextContent());
+	}
+	
+	@Test
+	public void testDoc2() throws Exception {
+		File f=new File("resources/students.xml");
+		Document doc=DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(f);
+		Element students=doc.getDocumentElement();
+		Element student=(Element) students.getElementsByTagName("student").item(0);
+		Element email=(Element) student.getElementsByTagName("email").item(0);
+		email.setTextContent("127@qq.com");
+		TransformerFactory factory=TransformerFactory.newInstance();
+		Transformer trans=factory.newTransformer();
+		Source xmlSource=new DOMSource(doc);
+		Result outputTarget=new StreamResult(f);
+		trans.transform(xmlSource, outputTarget);
+	}
+}

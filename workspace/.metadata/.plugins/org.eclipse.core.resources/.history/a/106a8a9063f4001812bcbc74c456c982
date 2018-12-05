@@ -1,0 +1,15 @@
+package com.passer.chapter3;
+
+public class FinalizeEscapeGC {
+
+	public static FinalizeEscapeGC SAVE_HOOK =null;
+	
+	public void isAlive() {
+		System.out.println("yes , i am still alive");
+	}
+	
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+	}
+}

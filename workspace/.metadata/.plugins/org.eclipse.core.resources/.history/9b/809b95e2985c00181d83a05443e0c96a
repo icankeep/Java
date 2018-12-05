@@ -1,0 +1,54 @@
+package com.passer.batch;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+
+import org.junit.Test;
+
+import com.passer.smis.util.JdbcUtil;
+
+public class BatchTest {
+	//30072ms
+	@Test
+	public void testStatement() throws Exception {
+		Connection conn=JdbcUtil.getConnection();
+		long begin=System.currentTimeMillis();
+		for(int i=1;i<=1000;i++) {
+			String sql="INSERT INTO t_student (name,age) VALUES('passer',15)";
+			Statement st=conn.createStatement();
+			st.executeUpdate(sql);
+		}
+		System.out.println(System.currentTimeMillis()-begin);
+	}
+	
+	@Test
+	public void testBatchByStatemet() throws Exception {
+		String sql="INSERT INTO t_student(name,age) VALUES('passer',15)";
+		Connection conn=JdbcUtil.getConnection();
+		Statement st=conn.createStatement();
+		long begin=System.currentTimeMillis();
+		for(int i=1;i<=3000;i++) {
+			st.addBatch(sql);
+		}
+		st.executeBatch();
+		st.clearBatch();
+		System.out.println(System.currentTimeMillis()-begin);
+	}
+	
+	@Test
+	public void testBatchByPreparedStatement() throws Exception {
+		String sql="INSERT INTO t_student name,age VALUES(?,?)";
+		Connection conn=JdbcUtil.getConnection();
+		PreparedStatement ps=conn.prepareStatement(sql);
+		long begin=System.currentTimeMillis();
+		for(int i=1;i<=3000;i++) {
+			ps.setString(1,"passer");
+			ps.setInt(2, 20);
+			ps.addBatch();
+		}
+		ps.executeBatch();
+		ps.clearBatch();
+		System.out.println(System.currentTimeMillis()-begin);
+	}
+}

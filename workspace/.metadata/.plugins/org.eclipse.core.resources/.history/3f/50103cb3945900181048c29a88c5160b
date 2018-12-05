@@ -1,0 +1,28 @@
+package com.passer.junit4;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
+class JUnit4Demo {
+
+	@Before
+	public void before() {
+		System.out.println("初始化...");
+	}
+	@After
+	public void after() {
+		System.out.println("结束测试...");
+	}
+	
+	@Test
+	public void test1() {
+		System.out.println("测试1");
+	}
+	
+	@Test
+	public void test2() {
+		System.out.println("测试2");
+	}
+
+}

@@ -1,0 +1,12 @@
+contextsDir=D\:\\apache-tomcat-7.0.88\\conf\\Catalina\\localhost
+eclipse.preferences.version=1
+managerPassword=s3cret
+managerUrl=http\:localhost\:8080/manage
+managerUser=tomcat
+projectsInCp=webdemo;
+projectsInSourcePath=webdemo;
+tomcatBase=D\:\\apache-tomcat-7.0.88
+tomcatConfigFile=D\:\\apache-tomcat-7.0.88\\conf\\server.xml
+tomcatDir=D\:\\apache-tomcat-7.0.88
+tomcatJRE=1526302138689
+tomcatVersion=tomcatV7

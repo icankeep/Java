@@ -1,0 +1,5 @@
+package com.passer.anno;
+
+public @interface Table {
+
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+	<bean id="baseBean" abstract="true">
+		<property name="name" value="passer"/>
+		<property name="age" value="18"/>
+	</bean>
+	<!-- 配置SomeBean1 -->
+	<bean id="someBean1" class="com.passer.di_bean_inheritance.SomeBean1" parent="baseBean">
+		<property name="color" value="blue"/>
+	</bean>
+	
+	<!-- 配置SomeBean2 -->
+	<bean id="someBean2" class="com.passer.di_bean_inheritance.SomeBean2" parent="baseBean">
+		<property name="weight" value="55"/>
+	</bean>	
+</beans>

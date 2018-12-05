@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>注册页面</h2>
+	<form action="" method="post">
+		账号:<input type="text" value="name"/><br/>
+		密码:<input type="password" value="password"/><br/>
+	</form>
+</body>
+</html>

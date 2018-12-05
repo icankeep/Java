@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="generate">
+  <target name="generate">
+    <mybatis.generate configfile="D:\eclipse\jee-oxygen\workspace\JDBC-prepared\src\com\passer\batch\BatchTest.java" />
+  </target>
+</project>

@@ -1,0 +1,5 @@
+package com.passer.prepared_statement;
+
+public class PreparedStatementTest {
+
+}

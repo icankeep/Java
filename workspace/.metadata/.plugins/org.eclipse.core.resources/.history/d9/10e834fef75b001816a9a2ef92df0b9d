@@ -1,0 +1,26 @@
+package com.passer.smis.dao.impl;
+
+import java.util.List;
+
+import com.passer.smis.dao.IStudentDAO;
+import com.passer.smis.domain.Student;
+
+public class StudentDAOImpl implements IStudentDAO{
+	@Override
+	public void save(Student stu) {
+	}
+	@Override
+	public void update(Long id, Student newStu) {
+	}
+	@Override
+	public void delete(Long id) {
+	}
+	public Student get(Long id) {
+		return null;
+	}
+	@Override
+	public List<Student> listAll() {
+		return null;
+	}
+
+}

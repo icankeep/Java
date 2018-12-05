@@ -1,0 +1,5 @@
+package com.passer.smis.domain;
+
+public class Student {
+
+}

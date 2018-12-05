@@ -1,0 +1,59 @@
+package com.passer.smis.util;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.passer.smis.handle.IResultSetHandler;
+
+
+public class JdbcTemplate {
+	
+	/**
+	 * DML操作模板
+	 * @param sql		DML操作的SQL模板
+	 * @param params	需要填入SQL模板？中的参数
+	 */
+	public static void update(String sql,Object ...params) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		conn = JdbcUtil.getConnection();
+		try {
+			ps = conn.prepareStatement(sql);
+			for(int index = 0 ; index < params.length;index++) {
+				ps.setObject(index+1, params[index]);
+			}
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, ps, null);
+		}
+	}
+	
+	/**
+	 * DQL操作模板
+	 * @param sql		DQL操作的SQL模板
+	 * @param params	SQL模板中？对应的参数
+	 * @return			返回查询的对象链表
+	 */
+	public static <T> T query(String sql,IResultSetHandler<T> rsh,Object...params){
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = JdbcUtil.getConnection();
+			ps = conn.prepareStatement(sql);
+			for(int index = 0 ;index<params.length;index++) {
+				ps.setObject(index+1, params[index]);
+			}
+			rs = ps.executeQuery();
+			return rsh.handle(rs);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, ps, rs);
+		}
+		return null;
+	}
+}

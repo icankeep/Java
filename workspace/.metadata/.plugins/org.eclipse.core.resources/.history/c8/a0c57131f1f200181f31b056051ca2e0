@@ -1,0 +1,61 @@
+package com.passer.hibernate;
+
+import java.beans.BeanInfo;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.passer.anno.ID;
+import com.passer.anno.Table;
+import com.passer.util.JdbcTemplate;
+
+public class HibernateMock {
+
+	/**
+	 * HibernateMock保存对象操作
+	 * @param obj		需要保存的对象
+	 */
+	public static void save(Object obj) {
+		StringBuilder sql = new StringBuilder(80);
+		sql.append("INSERT INTO ");
+		
+		//定义并获取表名
+		String tableName = HibernateUtil.getTableName(obj);
+		sql.append(tableName);
+		sql.append(" (");
+		
+		//获取并拼接属性和问号字符串
+		StringBuilder strProperties = new StringBuilder(50);
+		StringBuilder strQuestionMark = new StringBuilder(50);
+		
+		//定义存储SQL？对应的参数的链表
+		List<Object> params = new ArrayList<>();
+		try {
+			BeanInfo beanInfo = Introspector.getBeanInfo(obj.getClass(),Object.class);
+			PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();
+			for (PropertyDescriptor pd : pds) {
+				if(isPrimaryKey(obj,pd.getName())) {
+					continue;
+				}
+				params.add(pd.getReadMethod().invoke(obj));
+				strProperties.append(pd.getName());
+				strProperties.append(",");
+				strQuestionMark.append("?,");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//删除最后多余的逗号
+		strProperties.deleteCharAt(strProperties.length()-1);
+		//删除最后多余的问号
+		strQuestionMark.deleteCharAt(strQuestionMark.length()-1);
+		sql.append(strProperties);
+		sql.append(") VALUES(");
+		sql.append(strQuestionMark);
+		sql.append(")");
+		JdbcTemplate.update(sql.toString(), params.toArray());
+	}
+
+}

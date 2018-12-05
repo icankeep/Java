@@ -1,0 +1,34 @@
+package com.passer.smis.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class StudentDAOTest {
+
+	@Test
+	void testSave() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testUpdate() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testDelete() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGet() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testListAll() {
+		fail("Not yet implemented");
+	}
+
+}

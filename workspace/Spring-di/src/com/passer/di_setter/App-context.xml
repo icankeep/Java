@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<!-- ①设置基本数据类型属性 -->
+		<bean id="cat" class="com.passer.di.Cat">
+			<property name="name" value="Tom"/>
+			<property name="age" value="3"/>
+		</bean>
+		
+		<!-- ②设置对象类型属性，即引用类型 -->
+		<!-- <bean id="person" class="com.passer.di.Person">
+			<property name="cat">
+				<ref bean="cat"/>
+			</property>
+		</bean> -->
+		
+		<bean id="person" class="com.passer.di.Person">
+			<property name="cat" ref="cat"/>
+		</bean>
+		
+		<!-- ③设置集合类型属性 -->
+		<bean id="collectionDemo" class="com.passer.di.CollectionDemo"> 
+			<!-- 设置List类型属性 -->
+			<property name="list">
+				<list>
+					<value>abc</value>
+					<value>zhou</value>
+				</list>
+			</property>
+			<!-- 设置Set类型属性 -->
+			<property name="set">
+				<set>
+					<value>tt</value>
+				</set>
+			</property>
+			<!-- 设置数组类型属性 -->
+			<property name="array">
+				<array>
+					<value>a</value>
+				</array>
+			</property>
+			<!-- 设置Map类型属性 -->
+			<!-- <property name="map">
+				<map>
+					<entry>
+						<key>
+							<value>key</value>
+						</key>
+						<value>value</value>
+					</entry>
+				</map>
+			</property> -->
+			<property name="map">
+				<map>
+					<entry key="key" value="value"/>
+				</map>
+			</property>
+			
+			<!-- 设置Properties类型属性 -->
+			<property name="properties">
+				<props>
+					<prop key="properties1">value1</prop>
+				</props>
+			</property>
+		</bean>
+</beans>

@@ -1,0 +1,36 @@
+package com.passer.commit;
+
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import org.junit.Test;
+
+import com.passer.smis.util.JdbcUtil;
+
+public class TxTest {
+	@Test
+	public void test1() throws Exception {
+		String sql="SELECT * FROM t_student acount WHERE name=? AND salary >=?";
+		Connection conn=JdbcUtil.getConnection();
+		PreparedStatement ps=conn.prepareStatement(sql);
+		ps.setString(1, "passer");
+		ps.setBigDecimal(2, new BigDecimal(199.0));
+		ResultSet rs=ps.executeQuery();
+		if(!rs.next()) {
+			throw new RuntimeException("余额不足");
+		}
+		sql="UPDATE FROM t_student SET salary=salary-? WHERE name=?";
+		ps=conn.prepareStatement(sql);
+		ps.setBigDecimal(1,new BigDecimal(199.0));
+		ps.setString(2, "passer");
+		ps.executeUpdate();
+		sql="UPDATE FROM t_student SET salary=salary+? WHERE name=?";
+		ps=conn.prepareStatement(sql);
+		ps.setBigDecimal(1, new BigDecimal(199.0));
+		ps.setString(2, "lll");
+		ps.executeUpdate();
+		JdbcUtil.close(conn, ps, rs);
+	}
+}

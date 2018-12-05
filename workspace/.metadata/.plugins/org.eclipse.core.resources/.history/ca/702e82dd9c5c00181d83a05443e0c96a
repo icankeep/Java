@@ -1,0 +1,21 @@
+package com.passer.blob;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import org.junit.Test;
+
+import com.passer.smis.util.JdbcUtil;
+
+public class BlobTest {
+	@Test
+	public void testBlob() throws Exception {
+		String sql="INSERT INTO t_image (image) VALUES(?)";
+		Connection conn=JdbcUtil.getConnection();
+		PreparedStatement ps=conn.prepareStatement(sql);
+		ps.setBlob(1,new FileInputStream("D:/psb.jpg"));
+		ps.executeUpdate();
+		JdbcUtil.close(conn,ps,null);
+	}
+}

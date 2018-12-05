@@ -1,0 +1,21 @@
+package com.passer.xml;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.junit.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class DocTest {
+	
+	@Test
+	public void testDoc() throws Exception {
+		File f=new File("resources/students.xml");
+		Document doc=DocumentBuilderFactory.newInstance().
+				newDocumentBuilder().parse(f);
+		Element root=doc.getDocumentElement();
+		System.out.println(root);
+	}
+}

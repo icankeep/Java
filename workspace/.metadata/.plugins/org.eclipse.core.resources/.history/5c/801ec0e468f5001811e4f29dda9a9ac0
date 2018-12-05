@@ -1,0 +1,9 @@
+package com.passer.param;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/param/login")
+public class LoginServlet extends HttpServlet{
+
+}

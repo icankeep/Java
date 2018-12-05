@@ -1,0 +1,68 @@
+package com.passer.smis.dao.impl;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.List;
+
+import com.passer.smis.dao.IStudentDAO;
+import com.passer.smis.domain.Student;
+
+public class StudentDAOImpl implements IStudentDAO{
+	@Override
+	public void save(Student stu) {
+	}
+	@Override
+	public void update(Long id, Student newStu) {
+	}
+	@Override
+	public void delete(Long id) {
+	}
+	public Student get(Long id) {
+		String sql="SELECT *FROM t_student WHERE id="+id;
+		Connection conn=null;
+		Statement st=null;
+		ResultSet rs=null;
+		Student stu=new Student();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/user_database?characterEncoding=utf-8", "root", "admin");
+			st=conn.createStatement();
+			rs=st.executeQuery(sql);
+			if(rs.next()) {
+				stu.setId(id);
+				stu.setName(rs.getString("name"));
+				stu.setAge(rs.getInt("age"));
+			}
+		} catch (Exception e) {
+		}finally {
+			try {
+				if(rs!=null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+			}finally {
+				try {
+					if(st!=null) {
+						st.close();
+					}
+				} catch (Exception e) {
+				}finally {
+					try {
+						if(conn!=null) {
+							conn.close();
+						}
+					} catch (Exception e) {
+					}
+				}
+			}
+		}
+		return stu;
+	}
+	@Override
+	public List<Student> listAll() {
+		return null;
+	}
+
+}

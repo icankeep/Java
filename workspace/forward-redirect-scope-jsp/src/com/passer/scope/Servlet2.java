@@ -1,0 +1,24 @@
+package com.passer.scope;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/scope/servlet2")
+public class Servlet2 extends HttpServlet{
+
+	private static final long serialVersionUID = 1L;
+	
+	protected void service(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		PrintWriter writer = resp.getWriter();
+		writer.println("request:username1-----------"+req.getAttribute("username1").toString()+"");
+		writer.println("session:username2-----------"+req.getSession().getAttribute("username2").toString()+"<br/>");
+		writer.println("application:username3-----------"+req.getServletContext().getAttribute("username3").toString());
+	}
+}

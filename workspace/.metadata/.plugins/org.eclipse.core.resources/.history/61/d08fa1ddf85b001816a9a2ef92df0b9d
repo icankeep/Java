@@ -1,0 +1,11 @@
+package com.passer.smis.domain;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter@Setter
+public class Student {
+	private Long id;
+	private String name;
+	private Integer age;
+}

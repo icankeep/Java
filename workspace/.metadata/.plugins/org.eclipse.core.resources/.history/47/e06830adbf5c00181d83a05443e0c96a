@@ -1,0 +1,8 @@
+package com.passer.smis.util;
+
+import java.sql.ResultSet;
+import java.util.List;
+
+public interface IResultSetHandler {
+	List handler(ResultSet rs) throws Exception;
+}

@@ -1,0 +1,19 @@
+package com.passer.annotation;
+
+import java.util.Arrays;
+
+public class VIPDemo {
+	public static void main(String[] args) {
+		Class<Employee> clz=Employee.class;
+		/*Annotation [] as=clz.getAnnotations();
+		for (Annotation a : as) {
+			System.out.println(a);
+		}*/
+		VIP vip=clz.getAnnotation(VIP.class);
+		System.out.println(vip.name());
+	    System.out.println(vip.age());
+	    System.out.println(Arrays.toString(vip.hobby()));
+	}
+	
+}
+

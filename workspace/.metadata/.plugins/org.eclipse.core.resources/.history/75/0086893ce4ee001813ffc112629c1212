@@ -1,0 +1,13 @@
+package com.passer.bean_utils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class BeanUtils {
+	
+	//JavaBean转化为Map
+	public static Map<String,Object> bean2Map(Object obj){
+		Map<String,Object> map = new HashMap<>();
+		return null;
+	}
+}

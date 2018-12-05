@@ -1,0 +1,15 @@
+package com.passer.annotation;
+
+import java.lang.annotation.Annotation;
+
+public class VIPDemo {
+	public static void main(String[] args) {
+		Class<Employee> clz=Employee.class;
+		Annotation [] as=clz.getAnnotations();
+		for (Annotation a : as) {
+			System.out.println(a);
+		}
+	}
+	
+}
+

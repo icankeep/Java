@@ -1,0 +1,20 @@
+package com.passer.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class Servlet1 extends MyGenericServlet{
+	
+	private static final long serialVersionUID = 1L;
+
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		System.out.println("Servlet1.service()");
+		System.out.println(super.getInitParameter("encoding"));
+		System.out.println(getServletName());
+		System.out.println(super.getServletContext());
+	}
+
+}

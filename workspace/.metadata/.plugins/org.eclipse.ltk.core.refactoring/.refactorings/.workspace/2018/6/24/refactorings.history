@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;Purchase-Storage-Sale-System&apos; to &apos;smis&apos;&#x0D;&#x0A;- Original element: &apos;Purchase-Storage-Sale-System&apos;&#x0D;&#x0A;- Renamed element: &apos;Purchase-Storage-Sale-System&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;Purchase-Storage-Sale-System&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=Purchase-Storage-Sale-System" name="smis" references="true" stamp="1528730094268" version="1.0"/>
+</session>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<!-- ①设置基本数据类型属性 -->
+		<!-- <bean id="employee" class="com.passer.di_constructor.Employee">
+			<constructor-arg name="name" value="员工1" />
+			<constructor-arg name="age" value="12"/>
+			<constructor-arg name="salary" value="30000"/>
+		</bean>  -->
+		
+		<!-- ②设置对象类型属性，即引用类型     使用内部Bean-->
+		<bean id="department" class="com.passer.di_constructor.Department">
+			<constructor-arg name="employee">
+				<bean id="employee" class="com.passer.di_constructor.Employee">
+					<constructor-arg name="name" value="员工1" />
+					<constructor-arg name="age" value="12"/>
+					<constructor-arg name="salary" value="30000"/>
+				</bean> 
+			</constructor-arg>
+			<constructor-arg name="employeeList">
+				<list>
+					<value>passer</value>
+				</list>
+			</constructor-arg>
+		</bean>
+		
+		<!-- ③设置集合类型属性 -->
+		
+</beans>

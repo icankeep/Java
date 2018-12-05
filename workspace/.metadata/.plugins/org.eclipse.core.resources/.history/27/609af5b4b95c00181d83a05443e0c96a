@@ -1,0 +1,46 @@
+package com.passer.smis.test;
+
+import org.junit.jupiter.api.Test;
+
+import com.passer.smis.dao.IStudentDAO;
+import com.passer.smis.dao.impl.StudentDAOImpl;
+import com.passer.smis.domain.Student;
+
+class StudentDAOTest {
+
+	private IStudentDAO studentDAO=new StudentDAOImpl();
+	@Test
+	void testSave() {
+		Student newStu=new Student();
+		newStu.setAge(144);
+		newStu.setName("passellkl");
+		studentDAO.save(newStu);
+	}
+
+	@Test
+	void testUpdate() {
+		Student newStu=new Student();
+		newStu.setId(13002L);
+		newStu.setAge(177);
+		newStu.setName("l12345l");
+		studentDAO.update(newStu);
+	}
+
+	@Test
+	void testDelete() {
+		studentDAO.delete(3L);
+	}
+
+	@Test
+	void testGet() {
+		System.out.println(studentDAO.get(4L));
+	}
+
+	@Test
+	void testListAll() {
+		for(Student stu:studentDAO.listAll()) {
+			System.out.println(stu);
+		}
+	}
+
+}

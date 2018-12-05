@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+	import="java.util.Arrays,java.util.Date"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	EL:
+	<% 
+		String test = "EL test!"; 
+		request.setAttribute("test", test);
+		request.setAttribute("num", 10);
+		request.setAttribute("str",Arrays.asList("A","b","c"));
+		request.setAttribute("date", new Date());
+	%>
+	${test}
+	<hr/>
+	if:
+	<c:if test="${num > 10}">num>10</c:if>
+	<hr/>
+	choose:
+	<c:choose>
+		<c:when test="${num == 10}">num=10</c:when>
+		<c:otherwise>num!=10</c:otherwise>
+	</c:choose>
+	<hr/>
+	foreach:
+	<c:forEach items="${str}" var="s">
+		${s}
+	</c:forEach>
+	<hr/>
+	foreach:
+	<c:forEach begin="1" step="1" end="10" var="num">${num}</c:forEach>
+	<hr/>
+	
+	<fmt:formatDate value="${date}" pattern="yyyy-MM-dd HH:mm:ss"/>
+</body>
+</html>

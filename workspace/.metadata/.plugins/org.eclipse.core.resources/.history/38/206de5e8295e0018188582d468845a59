@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/cal" method="post">
+		<input type="number" name="num1">
+		<select name="op">
+			<option>+</option> 
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+		</select>
+		<input type="number" name="num2">
+		<input type="submit" value="=">
+		<input type="number" value="">
+	</form>
+</body>
+</html>

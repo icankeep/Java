@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<students>
+	<student id="1">
+		<name>passer</name>
+		<email>1227118745@qq.com</email>
+		<sex>man</sex>
+		<tel>17691215898</tel>
+		<age>18</age>
+	</student>
+	<student id="2">
+		<name>icankeep</name>
+		<email>52737342@qq.com</email>
+		<sex>man</sex>
+		<tel>17691215898</tel>
+		<age>18</age>
+	</student>
+</students>

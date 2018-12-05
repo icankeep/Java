@@ -1,0 +1,11 @@
+package com.passer.xml;
+
+import org.junit.Test;
+
+public class DocTest {
+	
+	@Test
+	public void testDoc() throws Exception {
+		File f=new File()
+	}
+}

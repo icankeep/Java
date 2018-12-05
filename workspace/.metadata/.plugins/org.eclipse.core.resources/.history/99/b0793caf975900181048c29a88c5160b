@@ -1,0 +1,24 @@
+package com.passer.junit4;
+
+public class JUnit4{
+
+	@MyBefore
+	public void before() throws Exception{
+		System.out.println("初始化...");
+	}
+	@MyAfter
+	public void after() throws Exception{
+		System.out.println("结束测试...");
+	}
+	
+	@MyTest
+	public void test1() throws Exception{
+		System.out.println("测试1");
+	}
+	
+	@MyTest
+	public void test2() throws Exception{
+		System.out.println("测试2");
+	}
+
+}

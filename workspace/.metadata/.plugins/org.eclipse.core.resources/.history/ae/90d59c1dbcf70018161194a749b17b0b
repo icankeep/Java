@@ -1,0 +1,9 @@
+package com.passer.smis.web.servlet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/student/list")
+public class ListUserServlet extends HttpServlet{
+	
+}

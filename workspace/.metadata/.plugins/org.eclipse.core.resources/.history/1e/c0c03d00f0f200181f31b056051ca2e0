@@ -1,0 +1,11 @@
+package com.passer.test;
+
+import org.junit.Test;
+
+public class HibernateTest {
+
+	@Test
+	public void testSave() throws Exception {
+		
+	}
+}

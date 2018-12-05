@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.passer.mybatis.hello.mapper.UserMapper">
+	
+	<!--if and choose -->
+	<!-- <select id="getUser" resultType="User">
+		SELECT id,name,salary,deptid FROM t_user
+		WHERE 1 = 1
+		<if test="minSalary!=null">AND salary &gt;= #{minSalary}</if>
+		<if test="maxSalary!=null">AND salary &lt;= #{maxSalary}</if>
+		<choose>
+			<when test="deptid>0">AND deptid = #{deptid}</when>
+			<otherwise>AND deptid IS NOT NULL</otherwise>
+		</choose>
+	</select> -->
+	
+	<select id="getUser" resultType="User">
+		SELECT id,name,salary,deptid FROM t_user
+		<where>
+			<if test="minSalary!=null">AND salary &gt;= #{minSalary}</if>
+			<if test="maxSalary!=null">AND salary &lt;= #{maxSalary}</if>
+			<choose>
+				<when test="deptid>0">AND deptid = #{deptid}</when>
+				<otherwise>AND deptid IS NOT NULL</otherwise>
+			</choose>
+		</where>
+	</select>
+	
+	<update id="update">
+		UPDATE t_user
+		<set>
+			<if test="name!=null">name=#{name},</if>
+			<if test="password!=null">password=#{password}</if>
+		</set>
+	</update>
+	
+	<!-- 模拟where -->
+	<select id="getUser" resultType="User">
+		SELECT id,name,salary,deptid FROM t_user
+		<trim prefix="WHERE" prefixOverrides="AND |OR">
+			<if test="minSalary!=null">AND salary &gt;= #{minSalary}</if>
+			<if test="maxSalary!=null">AND salary &lt;= #{maxSalary}</if>
+			<choose>
+				<when test="deptid>0">AND deptid = #{deptid}</when>
+				<otherwise>AND deptid IS NOT NULL</otherwise>
+			</choose>
+		</trim>
+	</select>
+	
+	<!-- 模拟set -->
+	<update id="update">
+		UPDATE t_user
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="name!=null">name=#{name},</if>
+			<if test="password!=null">password=#{password}</if>
+		</trim>
+	</update>
+</mapper>

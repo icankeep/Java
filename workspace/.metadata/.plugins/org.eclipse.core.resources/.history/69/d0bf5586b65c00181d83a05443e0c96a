@@ -1,0 +1,39 @@
+package com.passer.smis.util;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class JdbcTemplate {
+	public static void update(String sql,Object ... params) {
+		Connection conn=null;
+		PreparedStatement ps=null;
+		try {
+			conn=JdbcUtil.getConnection();
+			ps=conn.prepareStatement(sql);
+			for(int index=0;index<params.length;index++) {
+				ps.setObject(index+1,params[index]);
+			}
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, ps, null);
+		}
+	}
+	
+	public static ResultSet query(String sql,Object ...params) {
+		Connection conn=null;
+		PreparedStatement ps=null;
+		try {
+			ps=conn.prepareStatement(sql);
+			for(int index=0;index<params.length;index++) {
+				ps.setObject(index+1,params[index]);
+			}
+			return ps.executeQuery();
+		}catch(Exception e) {
+		}
+		return null;
+	}
+}

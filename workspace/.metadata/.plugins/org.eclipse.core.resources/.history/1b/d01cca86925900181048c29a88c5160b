@@ -1,0 +1,14 @@
+package com.passer.junit4;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class JUnit4Demo {
+
+	@Test
+	void test() {
+		System.out.println("测试");
+	}
+
+}

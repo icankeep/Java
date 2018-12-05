@@ -1,0 +1,16 @@
+package com.passer.smis.web;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/user/list")
+public class UserServlet extends HttpServlet{
+
+	private static final long serialVersionUID = 1L;
+	
+	private void ser() {
+		// TODO Auto-generated method stub
+
+	}
+	
+}

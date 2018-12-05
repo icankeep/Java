@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	<!-- 配置DI解析器 -->
+	<context:annotation-config/>
+	
+	<!-- dao -->
+	<bean id="studentDAO" class="com.passer.dao.impl.StudentDAO"/>
+	
+	<!-- service -->
+	<bean id="studentService" class="com.passer.service.impl.StudentServiceImpl">
+		<property name="studentDAO" ref="studentDAO"/>
+	</bean>
+	
+	<!-- AOP配置:  在什么地点 + 什么时机 + 做什么 -->
+	<!--1:WHAT,做什么增强  -->
+	<!-- transactionManager -->
+	<bean id="txManager" class="com.passer.tx.TransactionManager"/>
+	<aop:config>
+		<!-- 配置AOP切面 -->
+		<aop:aspect ref="txManager">
+			<!--2:WHERE:在哪些包中的哪些类中的哪些方法上做增强  -->
+			<aop:pointcut expression="execution(* com.passer.service.*Service.*(..))" id="txPoint"/>
+			<!-- <aop:pointcut expression="execution(* com.passer.service..*(..))" id="txPoint"/> -->
+			
+			<!--3:WHEN:在方法执行的什么时机做增强  -->
+			<aop:before method="begin" pointcut-ref="txPoint"/>
+			<aop:after-returning method="commit" pointcut-ref="txPoint"/>
+			<aop:after-throwing method="rollback" pointcut-ref="txPoint" throwing="ex"/>
+			<aop:after method="close" pointcut-ref="txPoint"/>
+			
+			<!-- <aop:around method="aroundMethod" pointcut-ref="txPoint"/> -->
+		</aop:aspect>
+	</aop:config>	
+</beans>

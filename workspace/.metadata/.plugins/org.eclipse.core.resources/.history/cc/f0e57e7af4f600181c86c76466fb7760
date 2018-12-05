@@ -1,0 +1,9 @@
+package com.passer.scope;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/scope/servlet1")
+public class Servlet1 extends HttpServlet{
+	
+}

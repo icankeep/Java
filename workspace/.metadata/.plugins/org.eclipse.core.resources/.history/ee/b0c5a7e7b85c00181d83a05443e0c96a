@@ -1,0 +1,42 @@
+package com.passer.smis.dao.impl;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.passer.smis.dao.IStudentDAO;
+import com.passer.smis.domain.Student;
+import com.passer.smis.util.JdbcTemplate;
+import com.passer.smis.util.JdbcUtil;
+
+public class StudentDAOImpl implements IStudentDAO{
+	@Override
+	public void save(Student stu) {
+		String sql="INSERT INTO t_student (name,age) VALUES(?,?)";
+		JdbcTemplate.update(sql,new Object[]{"hhhppp",115});
+	}
+	@Override
+	public void update(Student newStu) {
+		String sql="UPDATE t_student SET name=?,age=? WHERE id=?";
+		JdbcTemplate.update(sql,new Object[] {newStu.getName(),newStu.getAge(),newStu.getId()});
+	}
+	@Override
+	public void delete(Long id) {
+		String sql="DELETE FROM t_student WHERE id=？";
+		JdbcTemplate.update(sql, new Object[] {id});
+	}
+	public Student get(Long id) {
+		String sql="SELECT *FROM t_student WHERE id=?";
+		List <Student> list=JdbcTemplate.query(sql,new Object[] {id});
+		if(list!=null) {
+			return list.get(0);
+		}
+		return null;
+	}
+	@Override
+	public List<Student> listAll() {
+		String sql="SELECT *FROM t_student";
+		return JdbcTemplate.query(sql,null);
+	}
+}

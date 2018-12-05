@@ -1,0 +1,105 @@
+package com.passer.smis.dao.impl;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.passer.smis.dao.IStudentDAO;
+import com.passer.smis.domain.Student;
+import com.passer.smis.util.JdbcUtil;
+
+public class StudentDAOImpl implements IStudentDAO{
+	@Override
+	public void save(Student stu) {
+		String sql="INSERT INTO t_student (name,age) VALUES('"+
+				stu.getName()+"',"+stu.getAge()+")";
+		Connection conn=JdbcUtil.getConnection();
+		Statement st=null;
+		try {
+			st=conn.createStatement();
+			st.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, st, null);
+		}
+		
+	}
+	@Override
+	public void update(Student newStu) {
+		Long id=newStu.getId();
+		String name=newStu.getName();
+		Integer age=newStu.getAge();
+		String sql="UPDATE t_student SET name='"+name+
+				"',age="+age+" WHERE id="+id;
+		Connection conn=JdbcUtil.getConnection();
+		Statement st=null;
+		try {
+			st=conn.createStatement();
+			st.executeUpdate(sql);
+		} catch (Exception e) {
+		} finally {
+			JdbcUtil.close(conn, st, null);
+		}
+	}
+	@Override
+	public void delete(Long id) {
+		String sql="DELETE FROM t_student WHERE id="+id;
+		Connection conn=JdbcUtil.getConnection();
+		Statement st=null;
+		try {
+			st=conn.createStatement();
+			st.executeUpdate(sql);
+		} catch (Exception e) {
+		} finally {
+			JdbcUtil.close(conn,st,null);
+		}
+	}
+	public Student get(Long id) {
+		String sql="SELECT *FROM t_student WHERE id="+id;
+		Connection conn=JdbcUtil.getConnection();
+		Statement st=null;
+		ResultSet rs=null;
+		Student stu=new Student();
+		try {
+			st=conn.createStatement();
+			rs=st.executeQuery(sql);
+			if(rs.next()) {
+				stu.setId(id);
+				stu.setName(rs.getString("name"));
+				stu.setAge(rs.getInt("age"));
+				return stu;
+			}
+		} catch (Exception e) {
+		}finally {
+			JdbcUtil.close(conn, st, rs);
+		}
+		return null;
+	}
+	@Override
+	public List<Student> listAll() {
+		String sql="SELECT *FROM t_student";
+		List<Student> list=new ArrayList<>();
+		Connection conn=JdbcUtil.getConnection();
+		Statement st=null;
+		ResultSet rs=null;
+		try {
+			st=conn.createStatement();
+			rs=st.executeQuery(sql);
+			while(rs.next()) {
+				Student stu=new Student();
+				stu.setId(rs.getLong("id"));
+				stu.setAge(rs.getInt("age"));
+				stu.setName(rs.getString("name"));
+				list.add(stu);
+			}
+		} catch (Exception e) {
+		}finally {
+			JdbcUtil.close(conn, st, rs);
+		}
+		return list;
+	}
+}

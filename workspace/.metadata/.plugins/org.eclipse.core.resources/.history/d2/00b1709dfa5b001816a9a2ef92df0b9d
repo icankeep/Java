@@ -1,0 +1,38 @@
+package com.passer.smis.test;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.Test;
+
+import com.passer.smis.dao.IStudentDAO;
+import com.passer.smis.dao.impl.StudentDAOImpl;
+
+class StudentDAOTest {
+
+	private IStudentDAO studentDAO=new StudentDAOImpl();
+	@Test
+	void testSave() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testUpdate() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testDelete() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGet() {
+		System.out.println(studentDAO.get(3l));
+	}
+
+	@Test
+	void testListAll() {
+		fail("Not yet implemented");
+	}
+
+}

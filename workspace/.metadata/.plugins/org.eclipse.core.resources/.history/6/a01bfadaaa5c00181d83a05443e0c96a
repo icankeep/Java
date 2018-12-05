@@ -1,0 +1,28 @@
+package com.passer.dbcp;
+
+import java.sql.Connection;
+import java.sql.Statement;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.junit.Test;
+
+import com.passer.smis.util.JdbcUtil;
+
+public class DBCPTest {
+	@Test
+	public void testDBCP() throws Exception {
+		String sql="INSERT INTO t_student (name,age) VALUES ('passer',15)";
+		DataSource ds=getDataSource();
+		Connection conn=ds.getConnection();
+		Statement st=conn.createStatement();
+		st.executeUpdate(sql);
+		
+	}
+
+	public DataSource getDataSource() {
+		BasicDataSource ds=new BasicDataSource();
+		return null;
+	}
+}

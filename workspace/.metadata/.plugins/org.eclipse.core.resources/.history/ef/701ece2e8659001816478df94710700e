@@ -1,0 +1,17 @@
+package com.passer.annotation;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+
+public @interface VIP {
+	String []value();
+	/*String name();
+	//Integer age();  只能为基本数据类型，否则编译不通过
+	int age() default 18;
+	String [] hobby() default {"a","b"};*/
+}

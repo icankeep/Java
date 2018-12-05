@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.passer.mybatis.hello.mapper.EmployeeMapper">
+	
+	<resultMap type="Employee" id="BaseResultMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="dept_id" property="dept.id"/>
+		<association property="dept" column="dept_id"
+			select="com.passer.mybatis.hello.mapper.DepartmentMapper.get"
+		/>
+	</resultMap>	
+	
+	<!-- <resultMap type="Employee" id="BaseResultMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="d_id" property="dept.id" />
+		<result column="d_name" property="dept.name"/>
+	</resultMap> -->
+	
+<!-- 	<resultMap type="Employee" id="BaseResultMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<association property="dept" javaType="Department">
+			<result column="d_id" property="id"/>
+			<result column="d_name" property="name"/>
+		</association> 
+	</resultMap> -->
+	
+<!-- 	<resultMap type="Employee" id="BaseResultMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<association property="dept" javaType="Department" columnPrefix="d_">
+			<result column="id" property="id"/>
+			<result column="name" property="name"/>
+		</association> 
+	</resultMap> -->
+		
+	<insert id="save">
+		INSERT INTO employee (name,dept_id) VALUES (#{name},#{dept.id})
+	</insert>
+	
+	<select id="get" resultMap="BaseResultMap">
+		SELECT e.id,e.name,e.dept_id FROM employee e WHERE e.id = #{id}
+	</select>
+	
+	<select id="listAll" resultMap="BaseResultMap">
+		SELECT e.id,e.name,d.id d_id,d.name d_name FROM employee e JOIN department d ON e.dept_id = d.id
+	</select>
+</mapper>

@@ -1,0 +1,5 @@
+package com.passer.hibernate;
+
+public class HibernateTest {
+
+}
